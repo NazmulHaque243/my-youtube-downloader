@@ -10,13 +10,14 @@ def youtube_downloader(links_of):
     # youtube_link=links_of[urls]
     yt=YouTube(links_of,on_progress_callback=on_progress)
     print("please wait.....")
-    print("video clips")
     print(yt.title)
     print("wait for information...")
     for index,i in enumerate(yt.streams):
         if i.type=="video":
+            print("video clips number")
             print(f"{index}: {i.resolution}{i.filesize//1024}kb")
         else:
+            print("audio clips number")
             print(f"{index}: {i.abr}{i.filesize}kb")
 
             
