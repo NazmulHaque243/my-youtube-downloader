@@ -88,7 +88,7 @@ class Youtube_dowloader:
         rcode=r.status_code
         if rcode==200:
         
-            with open(title+".mp3","wb") as file:
+            with open(f'{title}+.mp3',"wb") as file:
                 for data in tqdm(iterable=r.iter_content(chunk_size=1024),total=total/1024,unit="KB"):
 
                     file.write(data)
@@ -103,7 +103,7 @@ class Youtube_dowloader:
         rcode=r.status_code
         if rcode==200:
         
-            with open(title+".mp4","wb") as file:
+            with open(f'title+.mp4',"wb") as file:
                 for data in tqdm(iterable=r.iter_content(chunk_size=1024),total=total/1024,unit="KB"):
 
                     file.write(data)
@@ -119,22 +119,24 @@ if __name__=="__main__":
         link=ut.request_for_mp3()
         dowlink=link[0]
         title=link[1]
+        t=r'title'
         # print(title)
         # t=type(title)
         # print(t)
         # t=title.split("")
         # t=str(title)
-        ut.download_audio(dowlink,title)
+        ut.download_audio(dowlink,t)
 
     elif for_downlod=="video":
         num=input("enter video queilty number\n 18 for 360p\n 22 for 720p\n 133 for 240p\n 135 for 480p\n 160 for 144p\n")
         link=ut.request_for_mp4(num)
         dowlink=link[0]
         title=link[1]
+        t=r'title'
         # t=type(title)
         # t=title.split("")
         # t=str(title)
-        ut.download_video(dowlink,title)
+        ut.download_video(dowlink,t)
         
 
 
