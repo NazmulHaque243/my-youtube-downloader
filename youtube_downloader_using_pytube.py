@@ -20,7 +20,7 @@ __   __         _____      _
 
 def on_progress(stream,chunk,bytes_remaining):
     total=stream.filesize
-    for data in tqdm(iterable=chunk,total=total,unit="kb"):
+    for data in tqdm(iterable=chunk,total=total,unit="B",unit_divisor=1024,unit_scale=True):
         pass
 
     
